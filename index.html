@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Digital Systemics · Beate Marshall</title>
+  <title>DigitalSystemics · High-Performance Desktop Tooling</title>
   
   <link rel="icon" type="image/jpeg" href="favicon.jpg">
   
@@ -13,12 +13,12 @@
 
   <style>
     :root {
-      --bg-pure: #FFFFFF;
-      --bg-tint: #F4F7F8;
-      --text-main: #1D232A;
+      --bg: #FFFFFF;
+      --bg-subtle: #F4F7F8;
+      --text: #1D232A;
       --text-muted: #5C6670;
       --accent: #8A2BE2;
-      --border-subtle: #E5E9EB;
+      --border: #DCE3E6;
       --font-sans: 'Atkinson Hyperlegible Next', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-mono: 'Atkinson Hyperlegible Mono', monospace;
     }
@@ -30,358 +30,317 @@
     }
 
     body {
-      background-color: var(--bg-pure);
-      color: var(--text-main);
+      background-color: var(--bg);
+      color: var(--text);
       font-family: var(--font-sans);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Header & Navigation */
-    header.site-header {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2.5rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .brand {
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--text-main);
-      text-decoration: none;
-      letter-spacing: -0.02em;
-    }
-
-    .brand span {
-      color: var(--accent);
-      margin-right: 0.2rem;
-    }
-
-    nav.site-nav {
-      display: flex;
-      gap: 2rem;
-    }
-
-    nav.site-nav a {
-      color: var(--text-main);
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 600;
-      transition: color 0.2s ease;
-    }
-
-    nav.site-nav a:hover,
-    nav.site-nav a.active {
-      color: var(--accent);
-    }
-
-    /* Container & Spacing */
-    .container {
-      width: 100%;
-      max-width: 1200px;
+    .wrapper {
+      max-width: 1040px;
       margin: 0 auto;
       padding: 0 2rem;
     }
 
-    /* Hero Section */
-    .hero {
-      padding: 4rem 0 6rem;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 4rem;
+    /* Minimalist Header */
+    header {
+      padding: 3rem 0;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
+      border-bottom: 1px solid var(--border);
     }
 
-    .hero-kicker {
+    .brand-mark {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .brand-mark span {
+      color: var(--accent);
+    }
+
+    nav a {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-left: 2rem;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    /* Hero / Value Proposition */
+    .hero {
+      padding: 5rem 0 4rem;
+      max-width: 760px;
+    }
+
+    .kicker {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 4vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+
+    .lead {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* The Architectural Dual: flag & bench */
+    .suite-section {
+      padding: 4rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-headline {
       font-size: 1.6rem;
       font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.01em;
+      letter-spacing: -0.02em;
+      margin-bottom: 2.5rem;
     }
 
-    .hero-text {
-      font-size: 1.15rem;
-      color: var(--text-main);
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+
+    .tool-card {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .tool-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .tool-tag {
+      font-family: var(--font-mono);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .tool-role {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .tool-body {
+      font-size: 1.05rem;
+      color: var(--text);
       line-height: 1.65;
       margin-bottom: 2rem;
     }
 
-    .hero-claim {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 2.5rem;
+    .spec-list {
+      list-style: none;
+      border-top: 1px solid var(--border);
+      padding-top: 1.25rem;
     }
 
-    .btn-action {
-      display: inline-block;
-      background-color: var(--accent);
-      color: #FFFFFF;
-      font-family: var(--font-sans);
-      font-size: 0.95rem;
-      font-weight: 600;
-      padding: 0.85rem 1.85rem;
-      border-radius: 4px;
-      text-decoration: none;
-      transition: opacity 0.2s ease;
-    }
-
-    .btn-action:hover {
-      opacity: 0.92;
-    }
-
-    .hero-visual {
+    .spec-list li {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
       display: flex;
-      justify-content: center;
       align-items: center;
+      gap: 0.5rem;
     }
 
-    .hero-visual img {
-      width: 100%;
-      max-width: 440px;
-      height: auto;
-      border-radius: 8px;
-    }
-
-    /* Numbers Strip */
-    .numbers-strip {
-      padding: 3rem 0;
-      border-top: 1px solid var(--border-subtle);
-      border-bottom: 1px solid var(--border-subtle);
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-      margin-bottom: 6rem;
-    }
-
-    .number-item .num {
+    .spec-list li::before {
+      content: "▪";
       color: var(--accent);
-      font-family: var(--font-mono);
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
     }
 
-    .number-item p {
+    /* Standards Strip */
+    .compliance-strip {
+      background-color: var(--bg-subtle);
+      border-radius: 6px;
+      padding: 2.5rem;
+      margin: 2rem 0 5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .compliance-text h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .compliance-text p {
       font-size: 0.95rem;
       color: var(--text-muted);
-      line-height: 1.5;
     }
 
-    /* Alternating Feature Sections */
-    .feature-section {
-      padding: 5rem 0;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
+    .tags {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
     }
 
-    .feature-section.reverse {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .feature-section.tinted {
-      background-color: var(--bg-tint);
-      margin-left: calc(-50vw + 50%);
-      margin-right: calc(-50vw + 50%);
-      padding: 6rem calc(50vw - 50% + 2rem);
-    }
-
-    .kicker {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .feature-heading {
-      font-size: 2.2rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--text-main);
-      margin-bottom: 1.5rem;
-    }
-
-    .feature-body {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-
-    .feature-pane {
-      background: #FFFFFF;
-      border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      padding: 2.5rem;
-    }
-
-    .code-term {
+    .tag {
       font-family: var(--font-mono);
-      color: var(--accent);
-      font-size: 1.3rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
+      font-size: 0.85rem;
+      padding: 0.4rem 0.8rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text);
     }
 
     /* Footer */
-    footer.site-footer {
-      padding: 5rem 0 3rem;
-      border-top: 1px solid var(--border-subtle);
-      text-align: center;
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 3rem 0 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       font-size: 0.9rem;
       color: var(--text-muted);
+      flex-wrap: wrap;
+      gap: 1.5rem;
     }
 
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-bottom: 1.5rem;
+    footer a {
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
-    .footer-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-
-    .footer-links a:hover {
+    footer a:hover {
       color: var(--accent);
     }
 
-    @media (max-width: 900px) {
-      .hero, .feature-section, .feature-section.reverse {
+    @media (max-width: 800px) {
+      .grid {
         grid-template-columns: 1fr;
-        gap: 3rem;
       }
-      .numbers-strip {
-        grid-template-columns: repeat(2, 1fr);
+      .compliance-strip {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
 </head>
 <body>
 
-  <header class="site-header">
-    <a href="https://github.com/DigitalSystemics" class="brand"><span>·</span>beateMarshall</a>
-    <nav class="site-nav">
-      <a href="#tools" class="active">Tools</a>
-      <a href="#standards">Standards</a>
-      <a href="https://github.com/DigitalSystemics" target="_blank" rel="noopener">GitHub</a>
-      <a href="mailto:info@beatemarshall.de">Dialog</a>
-    </nav>
-  </header>
+  <div class="wrapper">
+    <header>
+      <a href="https://github.com/DigitalSystemics" class="brand-mark"><span>d•t</span> | DigitalSystemics</a>
+      <nav>
+        <a href="#suite">Tooling</a>
+        <a href="#compliance">Specifications</a>
+        <a href="https://github.com/DigitalSystemics">Repositories</a>
+      </nav>
+    </header>
 
-  <div class="container">
-    <section class="hero">
+    <main>
+      <section class="hero">
+        <p class="kicker">Structural Clarity · Universal Access</p>
+        <h1>Deterministic tooling for high-compliance document ecosystems.</h1>
+        <p class="lead">
+          Local, self-contained desktop architectures designed to validate, repair, 
+          and standardize document trees at the syntactic root.
+        </p>
+      </section>
+
+      <section id="suite" class="suite-section">
+        <h2 class="section-headline">The Desktop Suite</h2>
+        <div class="grid">
+          
+          <article class="tool-card">
+            <div>
+              <div class="tool-header">
+                <div class="tool-tag">d•t | flag</div>
+                <div class="tool-role">Deterministic XMP Metadata Injection</div>
+              </div>
+              <p class="tool-body">
+                Ensures verifiable compliance across regulated pipelines. Executes atomic, 
+                rule-based metadata embedding locally on the desktop to guarantee absolute data privacy.
+              </p>
+            </div>
+            <ul class="spec-list">
+              <li>ISO 14289-1 (PDF/UA-1) & ISO 14289-2 (PDF/UA-2)</li>
+              <li>Local execution, zero network exposure</li>
+              <li>Deterministic checksum verification</li>
+            </ul>
+          </article>
+
+          <article class="tool-card">
+            <div>
+              <div class="tool-header">
+                <div class="tool-tag">d•t | bench</div>
+                <div class="tool-role">Abstract Syntax Tree (AST) Remediation</div>
+              </div>
+              <p class="tool-body">
+                Systemic validation and restructuring of deep tag structures. Corrects broken hierarchies 
+                and logical reading orders directly at the root level without visual degradation.
+              </p>
+            </div>
+            <ul class="spec-list">
+              <li>Syntactic tree inspection & semantic repair</li>
+              <li>Automated compliance matching for BFSG / WCAG</li>
+              <li>Designed for heavy production pipelines</li>
+            </ul>
+          </article>
+
+        </div>
+      </section>
+
+      <section id="compliance" class="compliance-strip">
+        <div class="compliance-text">
+          <h3>Standards & Normative Alignment</h3>
+          <p>Engineered to resolve complex legal and technical requirements reliably.</p>
+        </div>
+        <div class="tags">
+          <span class="tag">ISO 14289 (PDF/UA)</span>
+          <span class="tag">BFSG</span>
+          <span class="tag">WCAG 2.2</span>
+          <span class="tag">Matterhorn Protocol</span>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>Beate Marshall · DigitalSystemics</div>
       <div>
-        <h1 class="hero-kicker">Digital Systemics</h1>
-        <p class="hero-text">
-          High-Powered Desktop Apps und deterministische Datenarchitektur. 
-          Universal Access entsteht durch mathematische Exaktheit, Datenlogik 
-          und semantische Integrität an der Wurzel.
-        </p>
-        <p class="hero-claim">Structural Clarity · Universal Access</p>
-        <a href="#tools" class="btn-action">Werkzeuge erkunden</a>
+        Direct contact: <a href="mailto:info@beatemarshall.de">info@beatemarshall.de</a>
       </div>
-      <div class="hero-visual">
-        <img src="favicon.jpg" alt="DigitalSystemics Visualisierung">
-      </div>
-    </section>
-
-    <div class="numbers-strip">
-      <div class="number-item">
-        <div class="num">01. Logik</div>
-        <p>Strukturelle Klarheit als technische Präzision mit absoluter Ruhe.</p>
-      </div>
-      <div class="number-item">
-        <div class="num">02. Autarkie</div>
-        <p>Lokale Ausführung für maximale Datensouveränität am Arbeitsplatz.</p>
-      </div>
-      <div class="number-item">
-        <div class="num">03. Ergonomie</div>
-        <p>Kognitive Entlastung durch logisch deterministische Datenbäume.</p>
-      </div>
-      <div class="number-item">
-        <div class="num">04. Reife</div>
-        <p>Erfüllung internationaler Standards nach ISO 14289 und BFSG.</p>
-      </div>
-    </div>
-
-    <!-- Feature 1: d•t | flag -->
-    <section id="tools" class="feature-section">
-      <div class="feature-pane">
-        <div class="code-term">d•t | flag</div>
-        <p class="feature-body">
-          Autarke XMP-Metadaten-Injektion nach ISO 14289 (PDF/UA-1 & PDF/UA-2). 
-          Führt Validierungs- und Metadaten-Pipelines lokal und deterministisch aus – 
-          für maximale Datensouveränität ohne externe Abhängigkeiten.
-        </p>
-      </div>
-      <div>
-        <div class="kicker">Metadaten & Standardisierung</div>
-        <h2 class="feature-heading">Kontext-Autarkie</h2>
-        <p class="feature-body">
-          Pipelines funktionieren lokal: Datenstrukturen und Metadaten-Injektionen bleiben autark auf dem Desktop-System. Höchste Performance bei vollständiger Integrität.
-        </p>
-      </div>
-    </section>
-
-    <!-- Feature 2: d•t | bench -->
-    <section class="feature-section reverse tinted">
-      <div>
-        <div class="kicker">AST-Architektur & Validierung</div>
-        <h2 class="feature-heading">Syntax-Integrität</h2>
-        <p class="feature-body">
-          Strukturelle Analyse und systemische Sanierung logischer Dokumentenbäume direkt an der syntaktischen Wurzel. Verbindet typografische Exzellenz mit barrierefreier Datenintegrität.
-        </p>
-      </div>
-      <div class="feature-pane">
-        <div class="code-term">d•t | bench</div>
-        <p class="feature-body">
-          Systemische AST-Analyse und Struktursanierung komplexer Dokumenten-Ökosysteme. 
-          Prüft und korrigiert logische Dokumentenbäume deterministisch.
-        </p>
-      </div>
-    </section>
-
-    <!-- Standards Band -->
-    <section id="standards" class="feature-section">
-      <div>
-        <div class="kicker">Regulatorische Sicherheit</div>
-        <h2 class="feature-heading">Standards & Compliance</h2>
-        <p class="feature-body">
-          Gelebte Inklusion ist eine Eigenschaft der Systemarchitektur. Die Werkzeuge sind exakt auf die Anforderungen von BFSG, PDF/UA-1, PDF/UA-2 sowie WCAG 2.2 kalibriert.
-        </p>
-      </div>
-      <div class="feature-pane">
-        <div class="code-term">Compliance-Matrix</div>
-        <p class="feature-body">
-          • ISO 14289-1 (PDF/UA-1)<br>
-          • ISO 14289-2 (PDF/UA-2)<br>
-          • Barrierefreiheitsstärkungsgesetz (BFSG)<br>
-          • WCAG 2.1 & 2.2 (Level AA / AAA)
-        </p>
-      </div>
-    </section>
+    </footer>
   </div>
-
-  <footer class="site-footer">
-    <div class="footer-links">
-      <a href="mailto:info@beatemarshall.de">Kontakt</a>
-      <a href="https://github.com/DigitalSystemics" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://beatemarshall.de" target="_blank" rel="noopener">beatemarshall.de</a>
-    </div>
-    <p>© Digital Systemics · Beate Marshall · Solingen</p>
-  </footer>
 
 </body>
 </html>
