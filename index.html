@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DigitalSystemics · Structural Clarity & Universal Access</title>
+  
+  <!-- Eigenes Favicon im Browser-Tab -->
+  <link rel="icon" type="image/jpeg" href="favicon.jpg">
+  
+  <!-- Typografie: Atkinson Hyperlegible & Atkinson Hyperlegible Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;600&family=Atkinson+Hyperlegible+Next:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #F4F7F8;
+      --text: #323a43;
+      --accent: #8A2BE2;
+      --card-bg: #FFFFFF;
+      --border: #DCE3E6;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Atkinson Hyperlegible Next', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      padding: 4rem 1.5rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 820px;
+      width: 100%;
+    }
+
+    header {
+      margin-bottom: 3.5rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .claim {
+      font-size: 1.25rem;
+      color: var(--accent);
+      font-weight: 700;
+      margin-top: 0.25rem;
+    }
+
+    .lead {
+      font-size: 1.15rem;
+      margin-top: 1.5rem;
+      color: var(--text);
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.75rem;
+    }
+
+    .card h3 {
+      font-family: 'Atkinson Hyperlegible Mono', monospace;
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .code-tag {
+      font-family: 'Atkinson Hyperlegible Mono', monospace;
+      background: var(--bg);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.95em;
+    }
+
+    footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="container">
+    <header>
+      <div class="brand">
+        <img src="favicon.jpg" alt="DigitalSystemics Signet" class="avatar">
+        <div>
+          <h1>DigitalSystemics</h1>
+          <p class="claim">Structural Clarity · Universal Access</p>
+        </div>
+      </div>
+      <p class="lead">
+        Deterministische Datenarchitektur, systemische Sanierung von Dokumentenbäumen (AST) 
+        und hochpräzise Desktop-Werkzeuge für Barrierefreiheit nach ISO 14289 (PDF/UA).
+      </p>
+    </header>
+
+    <section aria-labelledby="tools-heading">
+      <h2 id="tools-heading">Desktop-Werkzeuge & Infrastruktur</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>d•t | flag</h3>
+          <p>
+            Autarke XMP-Metadaten-Injektion nach ISO 14289 (PDF/UA-1 & PDF/UA-2). 
+            Führt Validierungs- und Metadaten-Pipelines lokal und deterministisch aus – 
+            vollständige Datensouveränität ohne Cloud-Abhängigkeiten.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>d•t | bench</h3>
+          <p>
+            Systemische AST-Analyse und Struktursanierung komplexer Dokumenten-Ökosysteme. 
+            Prüft und korrigiert logische Dokumentenbäume direkt an der syntaktischen Wurzel.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="standards-heading">
+      <h2 id="standards-heading">Standards & Compliance</h2>
+      <p>
+        Umsetzung strenger gesetzlicher und technischer Richtlinien: 
+        <span class="code-tag">BFSG</span>, 
+        <span class="code-tag">PDF/UA-1</span>, 
+        <span class="code-tag">PDF/UA-2</span>, 
+        <span class="code-tag">WCAG 2.1 / 2.2</span>.
+      </p>
+    </section>
+
+    <footer>
+      <div>Beate Marshall · Solingen</div>
+      <div><a href="mailto:info@beatemarshall.de">info@beatemarshall.de</a></div>
+      <div><a href="https://github.com/DigitalSystemics">GitHub Profil</a></div>
+    </footer>
+  </main>
+
+</body>
+</html>
